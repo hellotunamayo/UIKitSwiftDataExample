@@ -37,7 +37,12 @@ class DBController {
     
     //fetch data
     func fetchData(completion: @escaping ([DataModelType]?, Error?) -> ()) {
-        let descriptor = FetchDescriptor<DataModelType>(sortBy: [SortDescriptor<DataModelType>(\.id)])
+        let descriptor = FetchDescriptor<DataModelType>(
+//            predicate: #Predicate { $0.title != nil } //need this when filtering
+            sortBy: [
+                .init(\.createDate, order: .reverse)
+            ]
+        )
         if let context = self.context {
             do {
                 let data = try context.fetch(descriptor)

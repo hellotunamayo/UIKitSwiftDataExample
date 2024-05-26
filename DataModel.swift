@@ -13,12 +13,12 @@ class MockData {
     @Attribute(.unique) var id: UUID
     var title: String
     var body: String
+    var createDate: Date
     
     init(title: String, body: String) {
         self.id = UUID()
         self.title = title
         self.body = body
+        createDate = Date()
     }
 }
-
-

@@ -19,6 +19,6 @@ class MockData {
         self.id = UUID()
         self.title = title
         self.body = body
-        createDate = Date()
+        self.createDate = Date()
     }
 }
